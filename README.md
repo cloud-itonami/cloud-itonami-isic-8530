@@ -1,4 +1,4 @@
-# cloud-itonami-8530
+# cloud-itonami-isic-8530
 
 Open Business Blueprint for **ISIC Rev.5 8530**: Higher education.
 

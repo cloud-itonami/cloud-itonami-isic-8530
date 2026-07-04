@@ -1,4 +1,4 @@
-{:itonami.blueprint/id "cloud-itonami-8530"
+{:itonami.blueprint/id "cloud-itonami-isic-8530"
  :itonami.blueprint/name "Higher education"
  :itonami.blueprint/isic-rev5 "8530"
  :itonami.blueprint/domain :education/higher-education

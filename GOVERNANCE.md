@@ -1,6 +1,6 @@
 # Governance
 
-`cloud-itonami-8530` is an OSS open-business blueprint for higher education -- university, college and other post-secondary academic instruction and degree conferral.
+`cloud-itonami-isic-8530` is an OSS open-business blueprint for higher education -- university, college and other post-secondary academic instruction and degree conferral.
 Governance covers both the capability layer and the operator model.
 
 ## Maintainers
