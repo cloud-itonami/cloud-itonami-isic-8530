@@ -31,7 +31,15 @@
 ## Trust Controls
 
 - no degree conferral or grading decision is finalized without human sign-off
-- a fabricated transcript/assessment forces a hold, not an override
-- every record path is auditable
+- a fabricated jurisdiction accreditation citation, incomplete
+  accreditation evidence, a grade finalized against an unsatisfied
+  course prerequisite, a degree conferred against insufficient credits,
+  or an unresolved academic-integrity flag -- each forces a hold, not
+  an override
+- an enrollment cannot be graded or conferred twice: a double-
+  finalization/double-conferral attempt is held off this actor's own
+  enrollment facts alone, with no upstream comparison needed
+- every intake, assessment, screening, finalization and conferral path
+  is auditable
 - student data stays outside Git
 - emergency manual override paths remain outside LLM control
