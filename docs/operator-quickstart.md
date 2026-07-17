@@ -1,5 +1,9 @@
 # Operator Quickstart
 
+## Who this is for
+
+IT directors and registrars at accredited colleges, universities, and educational consortia who want to run their own enrollment intake, course assessment, grade finalization, and degree-conferral processes—with transparent governance, independent academic integrity checks, and full audit trails.
+
 ## Prerequisites
 
 - **Clojure CLI** (1.11+): Install from [clojure.org](https://clojure.org/guides/getting_started)

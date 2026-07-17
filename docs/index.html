@@ -12,6 +12,49 @@
       color: #333;
       background: #f9f9f9;
     }
+    @media (prefers-color-scheme: dark) {
+      body {
+        color: #e0e0e0;
+        background: #1a1a1a;
+      }
+      header {
+        background: #242424;
+        border-bottom-color: #444;
+      }
+      main {
+        background: #1f1f1f;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      }
+      .pitch p {
+        color: #d0d0d0;
+      }
+      .subtitle {
+        color: #aaa;
+      }
+      .cta-section {
+        border-top-color: #444;
+      }
+      .cta-primary {
+        background: #0077e6;
+      }
+      .cta-primary:hover {
+        background: #0066cc;
+      }
+      .cta-secondary {
+        background: #333;
+        color: #e0e0e0;
+        border-color: #555;
+      }
+      .cta-secondary:hover {
+        background: #404040;
+      }
+      .links a {
+        color: #66b3ff;
+      }
+      footer {
+        color: #666;
+      }
+    }
     header {
       background: #fff;
       border-bottom: 1px solid #e0e0e0;
@@ -39,6 +82,19 @@
       border-radius: 8px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
+    .problem {
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-left: 4px solid #0066cc;
+      margin-bottom: 2rem;
+      border-radius: 4px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .problem {
+        background: #2a2a2a;
+        border-left-color: #0077e6;
+      }
+    }
     .pitch {
       font-size: 1.05rem;
       line-height: 1.8;
@@ -47,6 +103,26 @@
     }
     .pitch p {
       margin-bottom: 1rem;
+    }
+    .differentiator {
+      font-weight: 600;
+      color: #0066cc;
+    }
+    @media (prefers-color-scheme: dark) {
+      .differentiator {
+        color: #66b3ff;
+      }
+    }
+    .not-scope {
+      color: #666;
+      font-style: italic;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      .not-scope {
+        color: #aaa;
+      }
     }
     .cta-section {
       margin-top: 3rem;
@@ -111,21 +187,26 @@
 
   <main>
     <div class="container">
+      <div class="problem">
+        <strong>The problem:</strong> LLMs excel at drafting enrollment records and checking prerequisites, but they have no notion of which jurisdiction's accreditation requirements are official, no license to finalize a real grade or confer a real degree, and no way to detect academic-integrity conflicts. Let an LLM finalize a grade directly and you risk fabricated citations, grades against unsatisfied prerequisites, degrees against insufficient credits, and unresolved academic-integrity concerns falling through.
+      </div>
+
       <div class="pitch">
-        <p>A forkable, deployable business model for colleges and universities that need student enrollment intake, course and degree-plan assessment, grade finalization, and degree conferral—all governed by an independent Academic Integrity Governor and immutable audit ledger.</p>
-        <p>This open-source actor seals a RegistrarOps-LLM into a trust boundary that never finalizes a real grade or confers a real degree without human sign-off. Built on the same langgraph-clj StateGraph runtime as thirteen prior ISIC verticals, it extends the governed-actor pattern to the first education vertical in this fleet.</p>
-        <p>Designed for independent colleges and universities, cooperative consortia, and community-education institutions that want transparent, auditable operations and data sovereignty.</p>
+        <p>An open-source actor that puts an independent <span class="differentiator">Academic Integrity Governor in front of every grade finalization and degree conferral</span>—the Governor independently re-verifies every high-stakes decision against jurisdiction facts, prerequisite records, and integrity flags, and rejects proposals that violate governance rules or lack proper evidence.</p>
+        <p>Forkable and deployable for accredited colleges, universities, consortia, and community-education institutions that want transparent, auditable enrollment-to-degree operations and full data sovereignty.</p>
+        <p class="not-scope"><strong>Not included:</strong> Full degree-audit engines with corequisites, substitution/waiver rules, transfer-credit equivalency, or major/minor/general-education distribution checking. Extend coverage by adding the next governance gate following the same independent-governor pattern.</p>
       </div>
 
       <div class="cta-section">
         <h2>Get started</h2>
-        <p style="margin-bottom: 1.5rem;">Fork this repository and self-host, or claim a free instance to evaluate:</p>
-        <a href="https://itonami.cloud/isic-8530/" class="cta-button cta-primary">Fork + self-host</a>
-        <a href="https://itonami.cloud/docs/go-live.md" class="cta-button cta-secondary">Paid hosting + support</a>
+        <p style="margin-bottom: 1.5rem;">Claim a free tenant to evaluate, or fork and self-host:</p>
+        <a href="https://itonami.cloud/isco-1212/" class="cta-button cta-primary">Claim free tenant</a>
+        <a href="https://itonami.cloud/docs/go-live.md" class="cta-button cta-secondary">Go-live with support</a>
       </div>
 
       <div class="links">
         <p style="margin-bottom: 1rem; font-weight: 500;">More information:</p>
+        <a href="https://github.com/com-junkawasaki/cloud-itonami-isic-8530">GitHub repository</a>
         <a href="../README.md">Project README</a>
         <a href="operator-quickstart.md">Operator quickstart</a>
         <a href="business-model.md">Business model</a>
