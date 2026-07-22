@@ -31,10 +31,9 @@
   by whom' is always a query over an immutable log -- the audit trail
   a student trusting an institution needs, and the evidence an
   operator needs if a grade or a degree is later disputed."
-  (:require #?(:clj  [clojure.edn :as edn]
-               :cljs [cljs.reader :as edn])
-            [registrar.registry :as registry]
-            [langchain.db :as d]))
+  (:require [registrar.registry :as registry]
+            [langchain.db :as d]
+            [langchain-store.core :as ls]))
 
 (defprotocol Store
   (enrollment [s id])
@@ -185,8 +184,8 @@
    :grade-sequence/jurisdiction      {:db/unique :db.unique/identity}
    :degree-sequence/jurisdiction      {:db/unique :db.unique/identity}})
 
-(defn- enc [v] (pr-str v))
-(defn- dec* [s] (when s (edn/read-string s)))
+(defn- enc [v] (ls/enc v))
+(defn- dec* [s] (ls/dec* s))
 
 (defn- enrollment->tx [{:keys [id student course required-prerequisites completed-courses credits-earned
                                academic-integrity-flag? grade-finalized? degree-conferred?
