@@ -35,7 +35,7 @@
   conferring a degree itself (that is `registrar.operation`'s `:grade/
   finalize`/`:degree/confer`, always human-gated -- see README
   `Actuation`)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.set :as set]))
 
 (defn- unsigned-certificate
@@ -96,7 +96,7 @@
     (throw (ex-info "grade-finalization: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "grade-finalization: sequence must be >= 0" {})))
-  (let [grade-number (str (str/upper-case jurisdiction) "-GRD-" (zero-pad sequence 6))
+  (let [grade-number (str (str/upper jurisdiction) "-GRD-" (zero-pad sequence 6))
         record {"record_id" grade-number
                 "kind" "grade-finalization-draft"
                 "enrollment_id" enrollment-id
@@ -120,7 +120,7 @@
     (throw (ex-info "degree-conferral: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "degree-conferral: sequence must be >= 0" {})))
-  (let [degree-number (str (str/upper-case jurisdiction) "-DEG-" (zero-pad sequence 6))
+  (let [degree-number (str (str/upper jurisdiction) "-DEG-" (zero-pad sequence 6))
         record {"record_id" degree-number
                 "kind" "degree-conferral-draft"
                 "enrollment_id" enrollment-id
