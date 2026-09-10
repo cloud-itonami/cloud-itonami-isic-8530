@@ -176,7 +176,7 @@ this fleet so far, applied here and finding nothing to fix.
   genuinely different domain (education, ISIC division 85) for the
   first time.
 - (+) The actuation invariant (governor + phase, two layers) is
-  regression-tested by `test/registrar/phase_test.clj`'s `grade-
+  regression-tested by `test/registrar/phase_test.kotoba`'s `grade-
   finalize-never-auto-at-any-phase`/`degree-confer-never-auto-at-any-
   phase`.
 - (+) `MemStore` ‖ `DatomicStore` parity is proven by `test/registrar/
@@ -186,7 +186,7 @@ this fleet so far, applied here and finding nothing to fix.
   violations` is a genuine new check shape for this fleet (set-
   containment/subset, a universal quantification, generalizing
   `clinic.governor`'s existential set-membership check), regression-
-  tested by `test/registrar/governor_contract_test.clj`'s
+  tested by `test/registrar/governor_contract_test.kotoba`'s
   `prerequisites-not-satisfied-is-held`.
 - (+) The dedicated-boolean double-actuation-guard lesson (from
   `6492`'s bug) has now been applied correctly BY DESIGN across a

@@ -31,7 +31,7 @@ clojure -M:dev:test
 Run a specific test file:
 
 ```bash
-clojure -M:dev:test test/registrar/governor_contract_test.clj
+clojure -M:dev:test test/registrar/governor_contract_test.kotoba
 ```
 
 ## Linting
@@ -47,7 +47,7 @@ clojure -M:lint
 The independent governor that gates all high-stakes operations (grade finalization, degree conferral) lives at:
 
 ```
-src/registrar/governor.cljc
+src/registrar/governor.kotoba
 ```
 
 ### Key entry points
@@ -74,7 +74,7 @@ src/registrar/governor.cljc
 The immutable audit ledger and store protocol live in:
 
 ```
-src/registrar/store.cljc
+src/registrar/store.kotoba
 ```
 
 Two implementations (swappable via `:db-api` in tests):
@@ -83,21 +83,21 @@ Two implementations (swappable via `:db-api` in tests):
 
 ## Facts and registry
 
-- **`src/registrar/facts.cljc`** – Per-jurisdiction degree-accreditation catalog with spec-basis citations (currently seeded for JPN, USA, GBR, DEU)
-- **`src/registrar/registry.cljc`** – Grade-finalization and degree-conferral draft records, plus `prerequisites-satisfied?` and `credits-sufficient?` checks
+- **`src/registrar/facts.kotoba`** – Per-jurisdiction degree-accreditation catalog with spec-basis citations (currently seeded for JPN, USA, GBR, DEU)
+- **`src/registrar/registry.kotoba`** – Grade-finalization and degree-conferral draft records, plus `prerequisites-satisfied?` and `credits-sufficient?` checks
 
 ## Project layout
 
 | File | Role |
 |---|---|
-| `src/registrar/store.cljc` | Store protocol, MemStore ‖ DatomicStore, audit ledger |
-| `src/registrar/registry.cljc` | Draft records, prerequisites-satisfied?, credits-sufficient? |
-| `src/registrar/facts.cljc` | Per-jurisdiction degree-accreditation catalog |
-| `src/registrar/registraropsllm.cljc` | RegistrarOps-LLM Advisor (mock or LLM-backed) |
-| `src/registrar/governor.cljc` | Academic Integrity Governor (independent verification) |
-| `src/registrar/phase.cljc` | Phase 0→3 state machine; actuation always human |
-| `src/registrar/operation.cljc` | OperationActor – langgraph-clj StateGraph |
-| `src/registrar/sim.cljc` | Demo driver |
+| `src/registrar/store.kotoba` | Store protocol, MemStore ‖ DatomicStore, audit ledger |
+| `src/registrar/registry.kotoba` | Draft records, prerequisites-satisfied?, credits-sufficient? |
+| `src/registrar/facts.kotoba` | Per-jurisdiction degree-accreditation catalog |
+| `src/registrar/registraropsllm.kotoba` | RegistrarOps-LLM Advisor (mock or LLM-backed) |
+| `src/registrar/governor.kotoba` | Academic Integrity Governor (independent verification) |
+| `src/registrar/phase.kotoba` | Phase 0→3 state machine; actuation always human |
+| `src/registrar/operation.kotoba` | OperationActor – langgraph-clj StateGraph |
+| `src/registrar/sim.kotoba` | Demo driver |
 | `test/registrar/*_test.clj` | Governor contract, phase invariants, store parity, registry conformance, facts coverage |
 
 ## For production

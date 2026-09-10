@@ -72,7 +72,7 @@ enforce this (`registrar.governor`'s `:actuation/finalize-grade`/
 `:actuation/confer-degree` high-stakes gate and `registrar.phase`'s
 phase table, which never puts `:grade/finalize`/`:degree/confer` in
 any phase's `:auto` set) -- see `registrar.phase`'s docstring and
-`test/registrar/phase_test.clj`'s `grade-finalize-never-auto-at-any-
+`test/registrar/phase_test.kotoba`'s `grade-finalize-never-auto-at-any-
 phase`/`degree-confer-never-auto-at-any-phase`. The actor may draft,
 check and recommend; a human registrar/academic dean is always the one
 who actually finalizes a grade or confers a degree. Like
@@ -155,14 +155,14 @@ reference at all.
 
 | File | Role |
 |---|---|
-| `src/registrar/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + separate grade-finalization/degree-conferral history. No dynamically-filed sub-record -- both actuation ops act directly on a pre-seeded enrollment, and the double-finalization/double-conferral guards check dedicated `:grade-finalized?`/`:degree-conferred?` booleans rather than a `:status` value |
-| `src/registrar/registry.cljc` | Grade-finalization + degree-conferral draft records, plus `prerequisites-satisfied?` -- the FIRST check in this fleet to be a SET-CONTAINMENT/subset test (does every required prerequisite appear in the completed-course set) rather than a single-item set-membership/conflict test -- and `credits-sufficient?`, reusing the MINIMUM-threshold shape for a further domain |
-| `src/registrar/facts.cljc` | Per-jurisdiction degree-accreditation catalog with an official spec-basis citation per entry, honest coverage reporting |
-| `src/registrar/registraropsllm.cljc` | **RegistrarOps-LLM Advisor** -- `mock-advisor` ‖ `llm-advisor`; intake/assessment/integrity-screening/grade-finalization/degree-conferral proposals |
-| `src/registrar/governor.cljc` | **Academic Integrity Governor** -- 5 HARD checks (spec-basis · evidence-incomplete · prerequisites-not-satisfied, pure ground-truth subset recompute · credits-not-sufficient, pure ground-truth minimum-threshold recompute · integrity-flag-unresolved, unconditional evaluation) + already-graded/already-conferred guards + 1 soft (confidence/actuation gate) |
-| `src/registrar/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted assess → supervised (grade/degree actuation always human; enrollment intake is the ONLY auto-eligible op, no direct academic risk) |
-| `src/registrar/operation.cljc` | **OperationActor** -- langgraph-clj StateGraph |
-| `src/registrar/sim.cljc` | demo driver |
+| `src/registrar/store.kotoba` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + separate grade-finalization/degree-conferral history. No dynamically-filed sub-record -- both actuation ops act directly on a pre-seeded enrollment, and the double-finalization/double-conferral guards check dedicated `:grade-finalized?`/`:degree-conferred?` booleans rather than a `:status` value |
+| `src/registrar/registry.kotoba` | Grade-finalization + degree-conferral draft records, plus `prerequisites-satisfied?` -- the FIRST check in this fleet to be a SET-CONTAINMENT/subset test (does every required prerequisite appear in the completed-course set) rather than a single-item set-membership/conflict test -- and `credits-sufficient?`, reusing the MINIMUM-threshold shape for a further domain |
+| `src/registrar/facts.kotoba` | Per-jurisdiction degree-accreditation catalog with an official spec-basis citation per entry, honest coverage reporting |
+| `src/registrar/registraropsllm.kotoba` | **RegistrarOps-LLM Advisor** -- `mock-advisor` ‖ `llm-advisor`; intake/assessment/integrity-screening/grade-finalization/degree-conferral proposals |
+| `src/registrar/governor.kotoba` | **Academic Integrity Governor** -- 5 HARD checks (spec-basis · evidence-incomplete · prerequisites-not-satisfied, pure ground-truth subset recompute · credits-not-sufficient, pure ground-truth minimum-threshold recompute · integrity-flag-unresolved, unconditional evaluation) + already-graded/already-conferred guards + 1 soft (confidence/actuation gate) |
+| `src/registrar/phase.kotoba` | **Phase 0→3** -- read-only → assisted intake → assisted assess → supervised (grade/degree actuation always human; enrollment intake is the ONLY auto-eligible op, no direct academic risk) |
+| `src/registrar/operation.kotoba` | **OperationActor** -- langgraph-clj StateGraph |
+| `src/registrar/sim.kotoba` | demo driver |
 | `test/registrar/*_test.clj` | governor contract · phase invariants · store parity · registry conformance · facts coverage |
 
 ## Business-process coverage (honest)
