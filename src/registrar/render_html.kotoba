@@ -53,7 +53,7 @@
        the emitted page;
     5. the emitted page's paired HTML tags must balance.
 
-  Usage: `clojure -M:dev:render-html [out-file]`
+  Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [clojure.java.io :as io]
             [kotoba.lang.text :as str]
@@ -562,7 +562,7 @@
      "<p><span class=\"badge\">read-only sample</span> <span class=\"badge\">governor-gated</span> "
      "<span class=\"badge\">grade finalization &amp; degree conferral always human-approved</span></p>\n"
      "<p class=\"subtitle\">Generated at build time by <code>registrar.render-html</code> "
-     "(<code>clojure -M:dev:render-html</code>) by driving the real actor stack — "
+     "(<code>kbb -M:dev:render-html</code>) by driving the real actor stack — "
      "<code>registrar.operation</code> → <code>registrar.governor</code> → "
      "<code>registrar.phase</code> → <code>registrar.store</code> — over the seed data in "
      "<code>registrar.store/demo-data</code>. Every figure on this page came back out of that run. "
@@ -585,7 +585,7 @@
      (count rules) " distinct reasons, "
      (count (store/grade-history db)) " grade finalization and "
      (count (store/degree-history db)) " degree conferral draft(s) this run. "
-     "Regenerate with <code>clojure -M:dev:render-html</code>; the build refuses to write this page "
+     "Regenerate with <code>kbb -M:dev:render-html</code>; the build refuses to write this page "
      "if the run produces no HARD hold, if any step's disposition differs from the scenario's "
      "declared expectation, if no clean lifecycle completes, or if the page would reference an "
      "undefined CSS custom property.</p>\n"

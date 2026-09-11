@@ -2473,7 +2473,7 @@ img,svg { max-width: 100%; height: auto; }</style>
   <h1>Higher education (ISIC 8530) — Operator console</h1>
 </header>
 <p><span class="badge">read-only sample</span> <span class="badge">governor-gated</span> <span class="badge">grade finalization &amp; degree conferral always human-approved</span></p>
-<p class="subtitle">Generated at build time by <code>registrar.render-html</code> (<code>clojure -M:dev:render-html</code>) by driving the real actor stack — <code>registrar.operation</code> → <code>registrar.governor</code> → <code>registrar.phase</code> → <code>registrar.store</code> — over the seed data in <code>registrar.store/demo-data</code>. Every figure on this page came back out of that run. The page carries no timestamp on purpose: two consecutive builds are byte-identical, so a diff means the actor's behaviour changed, not that the clock moved.</p>
+<p class="subtitle">Generated at build time by <code>registrar.render-html</code> (<code>kbb -M:dev:render-html</code>) by driving the real actor stack — <code>registrar.operation</code> → <code>registrar.governor</code> → <code>registrar.phase</code> → <code>registrar.store</code> — over the seed data in <code>registrar.store/demo-data</code>. Every figure on this page came back out of that run. The page carries no timestamp on purpose: two consecutive builds are byte-identical, so a diff means the actor's behaviour changed, not that the clock moved.</p>
 <main>
   <section class="card">
     <h2>Enrollment directory</h2>
@@ -2606,7 +2606,7 @@ img,svg { max-width: 100%; height: auto; }</style>
   </section>
 </main>
 <footer>
-  <p>cloud-itonami-isic-8530 — AGPL-3.0-or-later. 16 ledger facts, 7 governor HARD holds across 7 distinct reasons, 1 grade finalization and 1 degree conferral draft(s) this run. Regenerate with <code>clojure -M:dev:render-html</code>; the build refuses to write this page if the run produces no HARD hold, if any step's disposition differs from the scenario's declared expectation, if no clean lifecycle completes, or if the page would reference an undefined CSS custom property.</p>
+  <p>cloud-itonami-isic-8530 — AGPL-3.0-or-later. 16 ledger facts, 7 governor HARD holds across 7 distinct reasons, 1 grade finalization and 1 degree conferral draft(s) this run. Regenerate with <code>kbb -M:dev:render-html</code>; the build refuses to write this page if the run produces no HARD hold, if any step's disposition differs from the scenario's declared expectation, if no clean lifecycle completes, or if the page would reference an undefined CSS custom property.</p>
   <p class="muted">Of this file, <span class="num">71085</span> characters are the jp-go-dds (デジタル庁デザインシステム) stylesheet, which is a property of the design system and not of this page. Judge the page by the counts above — HARD holds, sections, rows, and whether every identifier on it can be found in <code>registrar.store/demo-data</code> — never by its size.</p>
 </footer>
 </body>

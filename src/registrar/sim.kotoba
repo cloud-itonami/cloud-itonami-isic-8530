@@ -1,5 +1,5 @@
 (ns registrar.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean enrollment through
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean enrollment through
   intake -> jurisdiction accreditation assessment -> academic-integrity
   screening -> grade-finalization proposal (always escalates) -> human
   approval -> commit, then through degree-conferral proposal (always

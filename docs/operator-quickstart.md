@@ -15,7 +15,7 @@ IT directors and registrars at accredited colleges, universities, and educationa
 The demo walks through two clean lifecycles (grade finalization and degree conferral) plus five HARD-hold cases:
 
 ```bash
-clojure -M:dev:run
+kbb -M:dev:run
 ```
 
 Output prints the complete audit ledger, showing every intake, assessment, screening, finalization, and conferral decision, with HARD-hold basis tags (`:no-spec-basis`, `:prerequisites-not-satisfied`, `:credits-not-sufficient`, `:integrity-flag-unresolved`, `:already-graded`, `:already-conferred`) exactly where intended.
@@ -25,13 +25,13 @@ Output prints the complete audit ledger, showing every intake, assessment, scree
 Full test suite covers governor contract, phase invariants, store parity, registry conformance, and facts coverage:
 
 ```bash
-clojure -M:dev:test
+kbb -M:dev:test
 ```
 
 Run a specific test file:
 
 ```bash
-clojure -M:dev:test test/registrar/governor_contract_test.kotoba
+kbb -M:dev:test test/registrar/governor_contract_test.kotoba
 ```
 
 ## Linting
@@ -39,7 +39,7 @@ clojure -M:dev:test test/registrar/governor_contract_test.kotoba
 Static analysis with clj-kondo (errors fail CI):
 
 ```bash
-clojure -M:lint
+kbb -M:lint
 ```
 
 ## Academic Integrity Governor
