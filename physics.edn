@@ -1,0 +1,35 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": a lab-safety monitoring robot supports physical
+;; supervision in practical/lab courses of higher education (ISIC 8530).
+;; Its physical work is in the teaching laboratory: wheeling reagent bottles
+;; between the store and the benches (a cart that must not tip when it stops
+;; hard), and watching the drying ovens, whose outer skin students brush
+;; against.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-8530"
+ :cases
+ [{:id :reagent-cart-hard-stop
+   :kind :transport
+   :procedure "robot wheels a cart of reagent bottles from the chemical store to the teaching benches and brakes for a student"
+   :params {:mass-kg 45.0 :payload-kg 25.0 :distance-m 30.0 :v-max-mps 0.8 :a-max-mps2 0.4
+            :drive-force-n 200.0 :crr 0.02 :cog-height-m 0.45 :support-half-length-m 0.28
+            :payload-cog-height-m 0.95 :max-time-s 2000.0}
+   :sweep {:param :brake-decel-mps2 :values [0.5 1.0 1.5 2.0 3.0]}
+   :quantity :min-tipover-margin
+   :limit {:min 0.30 :basis "estimate: keep 30 % of the restoring moment so bottles on the top shelf are not thrown when the cart stops"}
+   :boundary {:lo 0.2 :hi 6.0}}
+  {:id :drying-oven-skin
+   :kind :thermal
+   :procedure "laboratory drying oven held at 200 C for a four-hour session; mineral-wool wall, outer skin in the room"
+   :params {:conductivity-w-mk 0.045 :density-kg-m3 100.0 :specific-heat-j-kgk 840.0
+            :t-hot-c 200.0 :h-front-w-m2k 10.0 :h-back-w-m2k 10.0
+            :threshold-c 60.0 :duration-s 14400.0 :nodes 11}
+   :sweep {:param :thickness-m :values [0.02 0.03 0.04 0.06 0.08]}
+   :quantity :peak-back-c
+   :limit {:max 60.0 :basis "estimate: brief-contact skin burn threshold for painted metal around 60 C; ISO 13732-1 gives the curves to replace it with"}
+   :boundary {:lo 0.01 :hi 0.12}}]}
