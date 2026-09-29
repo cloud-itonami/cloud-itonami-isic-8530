@@ -17,7 +17,7 @@
        io.github.com-junkawasaki/langgraph-clj
         {:local/root "../../kotoba-lang/langgraph"}
         ;; デジタル庁デザインシステム(DADS) -- the workspace-wide base design
-        ;; system (com-junkawasaki/root CLAUDE.md, ADR-2607141915). Consumed as
+        ;; system (com-junkawasaki/root AGENTS.md, ADR-2607141915). Consumed as
         ;; a GIT dep, not :local/root: jp-go-dds resolves its own `html`/`css`
         ;; deps by git coordinate, and a :local/root consumer makes it look for
         ;; them relative to the wrong tree. Used only by
