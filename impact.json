@@ -1,0 +1,23 @@
+{
+  "schema": "itonami.necessity-impact.v1",
+  "necessity_role": "education",
+  "unit": "JPY per year, national university undergraduate/graduate tuition (standard amount)",
+  "baseline": {
+    "cost": 535800,
+    "source": "国立大学等の授業料その他の費用に関する省令 標準額 535,800円/年 (set FY2005 per https://www.mext.go.jp/b_menu/shingi/kokuritu/005/gijiroku/attach/1386503.htm; still listed unchanged through R7 in https://www.mext.go.jp/content/20251226-mxt_sigakujo-000046463_4.pdf)",
+    "as_of": "2026-10-02"
+  },
+  "with_bot": {
+    "cost": null,
+    "source": null,
+    "as_of": null,
+    "n_events": 0
+  },
+  "adopters": {
+    "external_tenants": 0,
+    "source": null
+  },
+  "repo": "cloud-itonami-isic-8530",
+  "isic": "8530",
+  "notes": "baseline: regulated reference price; each university may set up to 120% of it; private universities charge more. with_bot must come from costs of work this repo's actor actually processed (n_events >= 30); never simulated."
+}
